@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Portfolio | Web Dev + Design + Video</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">CREATIVE DEV</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#video">Video Reel</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="mobile-menu-btn" id="menuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+            <!-- 3D Orb Container -->
+    <div id="orb-container"></div>
+        <div class="hero-content">
+            <h1>Hello, I'm <span>CHRIS KARIUKI</span><br><span class="typewriter">Building Digital Experiences</span></h1>
+            <p>Web Developer • UX Designer • Video Editor • Graphic Artist</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Hire Me</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p class="section-subtitle">Multidisciplinary creative with expertise across multiple domains</p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-card" data-skill="web">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>Full-stack development with modern frameworks, responsive design, and optimized performance.</p>
+                <div class="skill-tags">
+                    <span>HTML/CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
+                    <span>Node.js</span>
+                </div>
+            </div>
+            <div class="skill-card" data-skill="design">
+                <div class="skill-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p>User-centered design, wireframing, prototyping, and creating intuitive digital experiences.</p>
+                <div class="skill-tags">
+                    <span>Figma</span>
+                    <span>Adobe XD</span>
+                    <span>Prototyping</span>
+                    <span>Wireframing</span>
+                </div>
+            </div>
+            <div class="skill-card" data-skill="video">
+                <div class="skill-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Video Editing</h3>
+                <p>Motion graphics, color grading, visual effects, and storytelling through video.</p>
+                <div class="skill-tags">
+                    <span>Premiere Pro</span>
+                    <span>After Effects</span>
+                    <span>DaVinci Resolve</span>
+                    <span>Motion Graphics</span>
+                </div>
+            </div>
+            <div class="skill-card" data-skill="graphic">
+                <div class="skill-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Graphic Design</h3>
+                <p>Brand identity, illustrations, marketing materials, and digital artwork.</p>
+                <div class="skill-tags">
+                    <span>Photoshop</span>
+                    <span>Illustrator</span>
+                    <span>InDesign</span>
+                    <span>Branding</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-title">
+            <h2>Featured Projects</h2>
+            <p class="section-subtitle">A showcase of my best work across different disciplines</p>
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn" data-filter="design">UX/UI</button>
+            <button class="filter-btn" data-filter="video">Video</button>
+            <button class="filter-btn" data-filter="graphic">Graphic</button>
+        </div>
+        <div class="projects-container">
+            <div class="project-card" data-category="web">
+                <div class="project-img">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Futuristic Dashboard UI</h3>
+                    <p>A cutting-edge admin dashboard with real-time data visualization and interactive elements.</p>
+                    <div class="project-tags">
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Three.js</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="video">
+                <div class="project-img">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link">View Video</a>
+                    </div>
+                    <i class="fas fa-film"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Brand Promo Video Series</h3>
+                    <p>Complete video production for tech startup including motion graphics and color grading.</p>
+                    <div class="project-tags">
+                        <span class="tag">Premiere Pro</span>
+                        <span class="tag">After Effects</span>
+                        <span class="tag">Motion Graphics</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="design">
+                <div class="project-img">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link">View Case Study</a>
+                    </div>
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3>E-Commerce Mobile App</h3>
+                    <p>Full UX design and development of a mobile shopping experience with AR product preview.</p>
+                    <div class="project-tags">
+                        <span class="tag">Figma</span>
+                        <span class="tag">React Native</span>
+                        <span class="tag">AR Integration</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="graphic">
+                <div class="project-img">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link">View Designs</a>
+                    </div>
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Tech Brand Identity</h3>
+                    <p>Complete branding package including logo, business cards, and marketing materials.</p>
+                    <div class="project-tags">
+                        <span class="tag">Illustrator</span>
+                        <span class="tag">Branding</span>
+                        <span class="tag">Print Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Video Reel Section -->
+    <section id="video">
+        <div class="section-title">
+            <h2>Video Reel</h2>
+            <p class="section-subtitle">Showcasing my video editing and motion graphics work</p>
+        </div>
+        <div class="video-container">
+            <div class="video-placeholder">
+                <i class="fas fa-play-circle"></i>
+                <h3>Video Showcase</h3>
+                <p>My best video edits, motion graphics, and visual effects compilation</p>
+                <button class="btn btn-primary" id="playVideo">Play Reel</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">Let's collaborate on something amazing</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Create Something Amazing</h3>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope"></i> Machariachris90@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +254 716010237</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">PORTFOLIO.X</div>
+            <p>&copy; <span id="currentYear"></span> Creative Portfolio. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart"></i> and <i class="fas fa-code"></i></p>
+        </div>
+    </footer>
+<!-- Add this right before closing </body> tag -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="threejs-scene.js"></script>
+<script src="video-player.js"></script>
+<script src="theme-switcher.js"></script>
+<script src="script.js"></script>
+<script src="animations.js"></script>
+
+</body>
+</html>

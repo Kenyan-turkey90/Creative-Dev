@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Debug Test</title>
+    <style>
+        body { margin: 0; background: #0a0a14; color: white; font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: 50px auto; text-align: center; }
+        canvas { border: 2px solid #00f3ff; border-radius: 10px; margin: 20px 0; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #00ff9d; color: #000; }
+        .error { background: #ff5555; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Three.js Debug Test</h1>
+        
+        <div id="webgl-status" class="status"></div>
+        <div id="threejs-status" class="status"></div>
+        <div id="render-status" class="status"></div>
+        
+        <canvas id="debugCanvas" width="800" height="600"></canvas>
+        
+        <button onclick="runTest()">Run Three.js Test</button>
+        
+        <div id="logs" style="margin-top: 20px; text-align: left; font-family: monospace; background: #1a1a1a; padding: 10px; border-radius: 5px;"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <script>
+        function log(msg) {
+            const logs = document.getElementById('logs');
+            logs.innerHTML += `<div>${new Date().toLocaleTimeString()}: ${msg}</div>`;
+            console.log(msg);
+        }
+        
+        function setStatus(id, message, type) {
+            const el = document.getElementById(id);
+            el.innerHTML = message;
+            el.className = `status ${type}`;
+        }
+        
+        async function runTest() {
+            log('Starting Three.js test...');
+            
+            // Test 1: WebGL Support
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (gl) {
+                    setStatus('webgl-status', '✓ WebGL is supported', 'success');
+                    log('WebGL is supported');
+                } else {
+                    setStatus('webgl-status', '✗ WebGL is not supported', 'error');
+                    log('WebGL is not supported');
+                    return;
+                }
+            } catch (e) {
+                setStatus('webgl-status', '✗ WebGL test failed: ' + e.message, 'error');
+                log('WebGL test failed: ' + e.message);
+                return;
+            }
+            
+            // Test 2: Three.js Loading
+            if (typeof THREE === 'undefined') {
+                setStatus('threejs-status', '✗ Three.js not loaded', 'error');
+                log('Three.js not loaded');
+                return;
+            }
+            setStatus('threejs-status', `✓ Three.js loaded (v${THREE.REVISION})`, 'success');
+            log(`Three.js version: ${THREE.REVISION}`);
+            
+            // Test 3: Create Simple Scene
+            try {
+                const canvas = document.getElementById('debugCanvas');
+                
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+                
+                // Add a cube
+                const geometry = new THREE.BoxGeometry();
+                const material = new THREE.MeshBasicMaterial({ color: 0x00f3ff, wireframe: true });
+                const cube = new THREE.Mesh(geometry, material);
+                scene.add(cube);
+                
+                camera.position.z = 5;
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    cube.rotation.x += 0.01;
+                    cube.rotation.y += 0.01;
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+                
+                setStatus('render-status', '✓ Scene rendered successfully', 'success');
+                log('Three.js scene created and animated successfully');
+                
+            } catch (error) {
+                setStatus('render-status', '✗ Failed to render scene: ' + error.message, 'error');
+                log('Render failed: ' + error.message);
+            }
+        }
+        
+        // Run test when page loads
+        window.addEventListener('load', () => {
+            log('Page loaded, running initial tests...');
+            runTest();
+        });
+    </script>
+</body>
+</html>
